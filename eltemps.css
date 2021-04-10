@@ -1,0 +1,28 @@
+body{
+    padding-top: 40px;
+    font-family: "Adobe Devanagari";
+}
+main{
+    min-height: 100vh;
+    padding: 25px;
+}
+vm{
+    background-size: cover;
+}
+.red-bg {
+    background: red;
+}
+
+.orange-bg {
+    background: orange;
+}
+
+section {
+    padding: 100px 15px;
+}
+.content.is-vcentered {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center; /* used this for multiple child */
+    align-items: center; /* if an only child */
+}

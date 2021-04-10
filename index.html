@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="eltemps.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css">
+</head>
+
+<body>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.css" rel="stylesheet" />
+
+<section id="eltemps" class="section">
+    <div class="has-background-primary">
+        <div class="title has-text-centered dividing-header">
+            <h3 class="is-size-1">Weather</h3>
+        </div>
+    </div>
+
+    <div class="tabs is-large">
+
+        <ul>
+            <li class="is-active"><a>Ciutats</a></li>
+            <li><a>Per dia</a></li>
+            <li><a>Per hora</a></li>
+            <li><a>30 dies</a></li>
+        </ul>
+    </div>
+
+    <div class="columns is-vcentered" >
+        <div class="column is-9">
+            <div class='select'>
+                <select v-model="selectedCity">
+                    <option>Selecciona ciutat</option>
+                    <option v-for='ciutat in ciutats' @click='itemClicked(ciutat)'>{{ ciutat }}</option>
+                </select>
+            </div>
+
+            <section  class="section">
+                <div class="columns">
+                    <div class="column">
+                        .
+                    </div>
+                    <div class="column">
+                        <div class="column">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>
+                                            <h1 class="has-text-info"> {{ ciutatActual.name }} </h1>
+                                            <h4 class="title">{{ ciutatActual.weather[0].main }}</h4>
+                                        </strong>
+
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="column">
+                            <div class="media-right">
+                                <nav class="level">
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">TEMP</p>
+                                            <p class="medium">{{ ciutatActual.main.temp }} °<span>C</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">S/T</p>
+                                            <p class="medium">{{ ciutatActual.main.feels_like }} °<span>C</span></p></p>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="media-right">
+                                <nav class="level">
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">VENT</p>
+                                            <p class="medium">{{ ciutatActual.wind.speed }} <span>Km/h</span></p></p>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">HUMETAT</p>
+                                            <p class="medium">{{ ciutatActual.main.feels_like }}</p>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="column">
+                            <div class="media-right">
+                                <nav class="level">
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">T Max</p>
+                                            <p class="medium">{{ ciutatActual.main.temp_max  }} °<span>C</span></p></p>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">T Min</p>
+                                            <p class="medium">{{ ciutatActual.main.temp_min  }} °<span>C</span></p></p>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="media-right">
+                                <nav class="level">
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">PRESS</p>
+                                            <p class="medium">{{ ciutatActual.main.pressure  }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="level-item has-text-centered">
+                                        <div>
+                                            <p class="kicker">VIS</p>
+                                            <p class="medium">{{ ciutatActual.visibility }}</p>
+
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>
+                                        <h4 class="kicker">{{ ciutatActual.weather[0].description }} <img src="http://openweathermap.org/img/wn/10d@2x.png" alt=""/></h4>
+
+
+
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+
+
+</section >
+
+
+
+
+<script src="https://unpkg.com/vue"></script>
+<script src="./main.js"></script>
+
+</body>
+
+</html>
+
+
